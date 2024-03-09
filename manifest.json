@@ -1,7 +1,7 @@
 {
 	"id": "obsidian-r2",
 	"name": "Obsidian R2",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"minAppVersion": "0.15.0",
 	"description": "Upload files to Cloudflare R2.",
 	"author": "Roger",

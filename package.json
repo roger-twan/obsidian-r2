@@ -1,6 +1,6 @@
 {
 	"name": "obsidian-r2",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "Upload files to Cloudflare R2 and embed them in Obsidian.",
 	"main": "main.js",
 	"scripts": {

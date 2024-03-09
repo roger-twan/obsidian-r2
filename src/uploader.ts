@@ -30,6 +30,6 @@ export default class Uploader {
       Key: key,
       Body: file
     }))
-    return `https://${this.settings.domain}/${key}`;
+    return `https://${this.settings.domain}/${key.replace(/ /g, '%20')}`;
   }
 }
