@@ -22,9 +22,7 @@ export default class Uploader {
   }
 
   async upload(file: File): Promise<string> {
-    const type = file.type.split('/')[0];
-    const random = (Math.random() + 1).toString(36).substring(2, 7)
-    const key = `${type}/${file.name}_${random}`
+    const key = this.getFileKey(file)
 
     await this.S3.send(new PutObjectCommand({
       Bucket: this.settings.bucket,
@@ -32,5 +30,15 @@ export default class Uploader {
       Body: file
     }))
     return `https://${this.settings.domain}/${key.replace(/ /g, '%20')}`;
+  }
+
+  private getFileKey(file: File): string {
+    const fileName = file.name
+    const type = file.type.split('/')[0];
+    const random = (Math.random() + 1).toString(36).substring(2, 7)
+    const lastDotIndex = fileName.lastIndexOf('.');
+    const baseName = fileName.slice(0, lastDotIndex);
+    const extName = fileName.slice(lastDotIndex);
+    return `${type}/${baseName}_${random}${extName}`
   }
 }
