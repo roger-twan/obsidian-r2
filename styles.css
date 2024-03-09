@@ -1,0 +1,11 @@
+.file-embed.error {
+  color: red;
+}
+.file-embed.uploaded-file {
+  margin: 2px 0;
+  padding: 4px 16px;
+  justify-content: left;
+}
+.file-embed.uploaded-file a {
+  text-decoration: none;
+}
