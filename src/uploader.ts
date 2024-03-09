@@ -23,8 +23,9 @@ export default class Uploader {
 
   async upload(file: File): Promise<string> {
     const type = file.type.split('/')[0];
-    const key = `${type}/${file.name}`
-    
+    const random = (Math.random() + 1).toString(36).substring(2, 7)
+    const key = `${type}/${file.name}_${random}`
+
     await this.S3.send(new PutObjectCommand({
       Bucket: this.settings.bucket,
       Key: key,
